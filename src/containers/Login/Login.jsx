@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Form, Input } from 'antd';
-import "./login.scss";
+import { Form, Input } from 'antd';
+import clases from "./Login.module.scss";
 import { userLogin } from '../../services/userAPI';
+import ButtonBlack from '../../components/ButtonBlack/ButtonBlack';
 
 const Login = () => {
     const [login, setLogin] = useState('')
@@ -12,10 +13,10 @@ const Login = () => {
         console.log(user)
     }
     return (
-        <div className="login">
-            <div className="login__container">
-                <div className="login__wrapper-form">
-                    <h4 className="login__title">Вход</h4>
+        <div className={clases.login}>
+            <div className={clases.login__container}>
+                <div className={clases.login__wrapper}>
+                    <h4 className={clases.login__title}>Вход</h4>
                     <Form
                         name="normal_login"
                         className="login-form"
@@ -24,7 +25,7 @@ const Login = () => {
                             name="username"
                         >     
                             <Input
-                                className="login__field"
+                                className={clases.login__field}
                                 placeholder="Логин" 
                                 value={login}
                                 onChange={e=>setLogin(e.target.value)}
@@ -34,7 +35,7 @@ const Login = () => {
                             name="password"
                         >
                             <Input
-                                className="login__field"
+                                className={clases.login__field}
                                 type="password"
                                 placeholder="Пароль"
                                 value = {password}
@@ -42,14 +43,11 @@ const Login = () => {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <Button 
-                                type="primary"
-                                htmlType="submit"
-                                className="login-form-button login__button"
+                            <ButtonBlack
                                 onClick={signIn}
                             >
-                                Log in
-                            </Button>
+
+                            </ButtonBlack>
                         </Form.Item>
                     </Form>
                 </div>
