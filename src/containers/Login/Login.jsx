@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import "./login.scss";
+import { userLogin } from '../../services/userAPI';
 
 const Login = () => {
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
+    
+    const signIn = async () =>{
+        const user = await userLogin(login, password)
+        console.log(user)
+    }
     return (
         <div className="login">
             <div className="login__container">
@@ -14,42 +19,36 @@ const Login = () => {
                     <Form
                         name="normal_login"
                         className="login-form"
-                        initialValues={{
-                            remember: true,
-                        }}
-                        onFinish={onFinish}
                     >
                         <Form.Item
                             name="username"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Username!',
-                                },
-                            ]}
                         >     
                             <Input
                                 className="login__field"
-                                placeholder="Логин" />
+                                placeholder="Логин" 
+                                value={login}
+                                onChange={e=>setLogin(e.target.value)}
+                            />
                         </Form.Item>
                         <Form.Item
                             name="password"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Password!',
-                                },
-                            ]}
                         >
                             <Input
                                 className="login__field"
                                 type="password"
                                 placeholder="Пароль"
+                                value = {password}
+                                onChange={e=>setPassword(e.target.value)}
                             />
                         </Form.Item>
                         <Form.Item>
-                            <Button type="primary" htmlType="submit" className="login-form-button login__button">
-                            Log in
+                            <Button 
+                                type="primary"
+                                htmlType="submit"
+                                className="login-form-button login__button"
+                                onClick={signIn}
+                            >
+                                Log in
                             </Button>
                         </Form.Item>
                     </Form>

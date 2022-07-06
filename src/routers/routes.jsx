@@ -1,11 +1,11 @@
-import CreateAd from "./pages/CreateAd";
-import Login from "./pages/Login/Login";
-import Organizations from "./pages/Organizations";
-import OrganizationPage from "./pages/OrganizationPage";
+import CreateAd from "../containers/CreateAd";
+import Login from "../containers/Login/Login";
+import Organizations from "../containers/Organizations";
+import OrganizationPage from "../containers/OrganizationPage";
 import {
     LOGIN_ROUTE, CREATE_AD_ROUTE,
     ORGANIZATIONS_ROUTE, ORGANIZATION_ROUTE,
-} from "./utils/consts";
+} from "../lib/consts";
 
 export const authRoutes = [
     {

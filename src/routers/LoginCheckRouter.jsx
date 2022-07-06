@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom'
-import { authRoutes, publicRoutes } from '../routes';
+import { authRoutes, publicRoutes } from './routes';
 
-const AppRouter = () => {
+const LoginCheckRouter = () => {
     let isAuth = true
     return (
         <Routes>
@@ -17,4 +17,4 @@ const AppRouter = () => {
     )
 }
 
-export default AppRouter;
+export default LoginCheckRouter;
