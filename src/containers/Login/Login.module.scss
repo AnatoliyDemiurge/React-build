@@ -11,6 +11,9 @@
 
     &__wrapper{
         padding:3.3em 6em 3.4em 6.1em;
+        @media screen and (max-width:530px){
+            padding:3em 3em;
+        }
     }
 
     &__title{
@@ -20,7 +23,10 @@
         line-height: 2.25rem;
         color: #1D1D1D; 
         margin-bottom:0.68em;
-        // margin-bottom:20px;
+        @media screen and (max-width:530px){
+            font-size:1.7rem;
+            line-height:2rem;
+        }
     }
 
     &__field{
@@ -34,6 +40,9 @@
         line-height: 1.063rem;
         color: #BFBFBF;
         width: 300px;
+        @media screen and (max-width:530px){
+            width:200px;
+        }
     }
 
 }
