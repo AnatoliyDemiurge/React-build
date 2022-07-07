@@ -1,7 +1,7 @@
-import CreateAd from "../containers/CreateAd";
+import CreateAd from "../containers/CreateAd/CreateAd";
 import Login from "../containers/Login/Login";
-import Organizations from "../containers/Organizations";
-import OrganizationPage from "../containers/OrganizationPage";
+import Organizations from "../containers/Organizations/Organizations";
+import OrganizationPage from "../containers/OrganizationPage/OrganizationPage";
 import {
     LOGIN_ROUTE, CREATE_AD_ROUTE,
     ORGANIZATIONS_ROUTE, ORGANIZATION_ROUTE,

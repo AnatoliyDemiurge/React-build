@@ -11,16 +11,18 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
     const signIn = (login, password) => {
+        // userLogin(login, password)
+        // .then(({data}) => {
+        //     console.log(data);
+        //     dispatch(setUser({
+        //         token: data.token,
+        //     }));
+        //     // push('/');
+        // })
+        // .catch(() => alert('Invalid user!'))  
         userLogin(login, password)
-        .then(({data}) => {
-            console.log(data);
-            dispatch(setUser({
-                token: data.token,
-            }));
-            // push('/');
-        })
-        .catch(() => alert('Invalid user!'))  
     }
+    // userLogin("88888888888","oleg12345!")
     return (
         <div className={clases.login}>
             <div className={clases.login__container}>
@@ -29,19 +31,36 @@ const Login = () => {
                     <Form
                         name="normal_login"
                         className="login-form"
+                        onFinish={signIn}
                     >
                         <Form.Item
+                            rules={[
+                                {
+                                  required: true,
+                                  message: 'Поле не может быть пустым!',
+                                },
+                              ]}
                             name="username"
-                        >     
+                            className={clases.error}
+                        >    
                             <Input
                                 className={clases.login__field}
+                                name="login"
                                 placeholder="Логин" 
-                                value={login}
+                                value={login}   
                                 onChange={e=>setLogin(e.target.value)}
+                                
                             />
                         </Form.Item>
                         <Form.Item
+                            rules={[
+                                {
+                                  required: true,
+                                  message: 'Поле не может быть пустым!',
+                                },
+                              ]}
                             name="password"
+                            className={clases.error}
                         >
                             <Input
                                 className={clases.login__field}
@@ -52,9 +71,7 @@ const Login = () => {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <ButtonBlack
-                                onClick={signIn}
-                            >
+                            <ButtonBlack>
 
                             </ButtonBlack>
                         </Form.Item>
