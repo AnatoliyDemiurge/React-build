@@ -10,7 +10,7 @@ const Login = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
-    const signIn = (login, password) => {
+    const signIn = () => {
         // userLogin(login, password)
         // .then(({data}) => {
         //     console.log(data);
@@ -20,8 +20,11 @@ const Login = () => {
         //     // push('/');
         // })
         // .catch(() => alert('Invalid user!'))  
+        console.log(login, password)
         userLogin(login, password)
     }
+    // console.log(login)
+    // console.log(password)
     // userLogin("88888888888","oleg12345!")
     return (
         <div className={clases.login}>
