@@ -5,27 +5,28 @@ import { userLogin } from '../../services/userAPI';
 import ButtonBlack from '../../components/ButtonBlack/ButtonBlack';
 import { useDispatch } from 'react-redux/es/exports';
 import { setUser } from '../../store/slices/userSlice/userSlice';
+import {useNavigate} from "react-router-dom";
+import { ORGANIZATIONS_ROUTE } from '../../lib/consts';
 
 const Login = () => {
+    const navigate = useNavigate()
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
     const signIn = () => {
-        // userLogin(login, password)
-        // .then(({data}) => {
-        //     console.log(data);
-        //     dispatch(setUser({
-        //         token: data.token,
-        //     }));
-        //     // push('/');
-        // })
-        // .catch(() => alert('Invalid user!'))  
-        console.log(login, password)
         userLogin(login, password)
+        .then((data) => {
+            console.log(data);
+            dispatch(setUser({
+                token: data.token,
+            }));
+            navigate(ORGANIZATIONS_ROUTE)
+        })
+        .catch(() => alert('Invalid user!'))  
+        // console.log(login, password)
+        // userLogin(login, password)
     }
-    // console.log(login)
-    // console.log(password)
-    // userLogin("88888888888","oleg12345!")
+
     return (
         <div className={clases.login}>
             <div className={clases.login__container}>

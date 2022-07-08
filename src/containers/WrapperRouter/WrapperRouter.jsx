@@ -5,9 +5,7 @@ import "../../assets/style/main.scss"
 
 function WrapperRouter() {
   return (
-    <BrowserRouter>
       <AppRouter />
-    </BrowserRouter>
   );
 }
 

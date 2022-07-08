@@ -3,8 +3,8 @@ import {$host} from "../api/index";
 
 export const userLogin = async (login, password) => {
     const {data} = await $host.post('api/user/signin', {login, password})
-    console.log(data)
-    // localStorage.setItem('token', data.token)
+    // console.log(data)
+    localStorage.setItem('token', data.token)
     // return jwt_decode(data.token)
     return data
 }
