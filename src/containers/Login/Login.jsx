@@ -62,6 +62,9 @@ const Login = () => {
                                   required: true,
                                   message: 'Поле не может быть пустым!',
                                 },
+                                { min: 8,
+                                  message: 'Пароль содержит от 8 символов' 
+                                }
                               ]}
                             name="password"
                             className={clases.error}
