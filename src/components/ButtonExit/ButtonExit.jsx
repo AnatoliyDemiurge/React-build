@@ -4,10 +4,14 @@ import clases from "./ButtonExit.module.scss";
 import {useNavigate} from "react-router-dom";
 import { removeUser } from '../../store/slices/userSlice/userSlice';
 import { LOGIN_ROUTE } from '../../lib/consts';
+import { useDispatch } from 'react-redux/es/exports';
 const ButtonExit = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate()
     const signOff = () =>{
-        removeUser()
+        dispatch(removeUser({
+            token: null
+        }));
         localStorage.token = ''
         navigate(LOGIN_ROUTE)
     }
