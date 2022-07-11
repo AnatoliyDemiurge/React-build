@@ -8,6 +8,16 @@ const LoginCheckRouter = () => {
     return (
         <Routes>
             {
+            publicRoutes.map(
+                ({ path, Component }) => 
+                    <Route 
+                        key={path} 
+                        path={path} 
+                        element={<Component/>} 
+                        exact
+                    />
+            )}
+            {
             store.getState().user.isAuth && authRoutes.map(
                 ({ path, Component }) =>
                 <Route element={<Wrapper/>} path="/">
@@ -19,16 +29,6 @@ const LoginCheckRouter = () => {
                         />
                 </Route> 
                     // </Route>
-            )}
-            {
-            publicRoutes.map(
-                ({ path, Component }) => 
-                    <Route 
-                        key={path} 
-                        path={path} 
-                        element={<Component/>} 
-                        exact
-                    />
             )}
             <Route path="*" element={<Navigate to ="/login" />}/>
         </Routes>

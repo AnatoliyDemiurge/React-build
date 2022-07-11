@@ -26,5 +26,10 @@ export const publicRoutes = [
     {
         path: LOGIN_ROUTE,
         Component: Login
+    },
+
+    {
+        path:'/',
+        Component:Login
     }
 ]
