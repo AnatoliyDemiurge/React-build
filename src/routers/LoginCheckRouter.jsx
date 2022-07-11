@@ -20,7 +20,7 @@ const LoginCheckRouter = () => {
             {
             store.getState().user.isAuth && authRoutes.map(
                 ({ path, Component }) =>
-                <Route element={<Wrapper/>} path="/">
+                <Route element={<Wrapper/>}>
                     <Route 
                             key={path} 
                             path={path} 
