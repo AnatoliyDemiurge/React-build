@@ -3,7 +3,7 @@ import React from 'react';
 const Organizations = () => {
     return (
         <div>
-            Organizations
+            o
         </div>
     )
 }

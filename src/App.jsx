@@ -1,11 +1,9 @@
 import React from 'react';
-import WrapperRouter from './containers/WrapperRouter/WrapperRouter';
-
+import Wrapper from './containers/Wrapper/Wrapper';
+import AppRouter from './routers/AppRouter';
 function App() {
   return (
-    <WrapperRouter>
-
-    </WrapperRouter>
+    <AppRouter />
   );
 }
 

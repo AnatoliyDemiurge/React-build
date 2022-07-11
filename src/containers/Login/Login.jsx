@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux/es/exports';
 import { setUser } from '../../store/slices/userSlice/userSlice';
 import {useNavigate} from "react-router-dom";
 import { ORGANIZATIONS_ROUTE } from '../../lib/consts';
-
+import { store } from '../../store';
 const Login = () => {
     const navigate = useNavigate()
     const [login, setLogin] = useState('')
@@ -20,6 +20,7 @@ const Login = () => {
             dispatch(setUser({
                 token: data.token,
             }));
+            console.log(store.getState().user.isAuth)
             navigate(ORGANIZATIONS_ROUTE)
         })
         .catch(() => alert('Invalid user!'))  

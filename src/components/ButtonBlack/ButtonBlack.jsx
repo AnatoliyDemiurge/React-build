@@ -7,9 +7,7 @@ const ButtonBlack = () => {
         <Button 
             type="primary"
             htmlType="submit"
-            // className="login-form"
             className={clases.button}
-            // className={clases.imgWillChoose + ' ' + style.imgIsChoosing}
         >
             Войти
         </Button>
