@@ -5,6 +5,7 @@ import { authRoutes, publicRoutes } from './routes';
 import { store } from '../store';
 import Wrapper from '../containers/Wrapper/Wrapper';
 const LoginCheckRouter = () => {
+    const user = useAuth()
     return (
         <Routes>
             {
@@ -18,7 +19,7 @@ const LoginCheckRouter = () => {
                     />
             )}
             {
-            store.getState().user.isAuth && authRoutes.map(
+            user.isAuth && authRoutes.map(
                 ({ path, Component }) =>
                 <Route element={<Wrapper/>}>
                     <Route 
